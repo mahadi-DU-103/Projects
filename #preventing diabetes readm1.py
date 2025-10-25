@@ -1,4 +1,4 @@
-#preventing diabetes readm1
+#preventing diabetes readmission
 
 
 import numpy as np
@@ -35,7 +35,7 @@ df.to_excel("Clean_diabates_data.xlsx", index=False)
 
 print(f"\nData cleaned and saved as: ", 'Clean_diabates_data.xlsx')
 
-#---------------------------------------------------------------------------
+
 #MEASURING CENTRAL TENDENCY AND DISPERSION
 
 df = pd.read_excel("Clean_diabates_data1.xlsx")
@@ -79,7 +79,7 @@ plt.legend(title="Statistics", loc='upper right')
 plt.tight_layout()
 plt.show()
 
-#--------------------------------------------------------------------------------
+
 #DETERMINING THE CORRELATION
 
 df_encoded = df.copy()
@@ -116,7 +116,7 @@ plt.xlabel('Correlation Coefficient')
 plt.ylabel('Variables')
 plt.show()
 
-#-------------------------------------------------------------------------------------------------------------------
+
 #READMISSION STATUS BY DISEASE GROUP
 
 df['readmission_binary'] = df['readmission_status'].replace({
@@ -199,7 +199,7 @@ for bars in [bars1, bars2]:
 plt.tight_layout()
 plt.show()
 
-#------------------------------------------------------------------------------------------------------
+
 #READMISSION STATUS BY DISEASE GROUP(AMONG DIABETES PATIENTS)
 
 def map_icd_group(code):
@@ -264,7 +264,7 @@ for bars in [bars1, bars2]:
 plt.tight_layout()
 plt.show()
 
-#-------------------------------------------------------------------------------------------
+
 #DISTRIBUTION OF READMISSION STATUS
 
 df['readmission_status'] = df['readmission_status'].replace({
@@ -295,7 +295,7 @@ plt.title("Distribution of Readmission Status", fontsize=14, pad=15)
 plt.tight_layout()
 plt.show()
 
-#--------------------------------------------------------------------------------
+
 #DISTRIBUTION OF READMISSION STATUS(ONLY FOR DIABETES PATIENT)
 
 df.columns = df.columns.str.strip().str.lower()
@@ -337,7 +337,8 @@ plt.pie(
 plt.title("Readmission Status (Only for Diabetes Patients)", fontsize=14, pad=15)
 plt.tight_layout()
 plt.show()
-#-----------------------------------------------------------------------------
+
+
 #BOX-PLOT FOR THE CRUCIAL VARIABLES
 
 df['A1C_result'] = df['A1C_result'].replace({
@@ -362,7 +363,8 @@ plt.xlabel("Variables")
 plt.ylabel("Values")
 plt.legend(title='Readmission Status')
 plt.show()
-#-----------------------------------------------------------------------------
+
+
 #MODEL DESIGN
 
 from sklearn.model_selection import train_test_split
@@ -420,6 +422,3 @@ print( pd.crosstab(
         normalize='index'
     )
 )
-
-#----------------------------------------------------------------------------------------
-
